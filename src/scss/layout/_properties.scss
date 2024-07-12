@@ -1,0 +1,22 @@
+@use "config/variables" as var;
+@use "config/mixins" as mix;
+
+.properties {
+  margin-top: 5rem;
+
+  @include mix.tablet {
+    margin-top: 10rem;
+  }
+
+  &__heading {
+    @include mix.heading();
+  }
+
+  &__grid {
+    @include mix.grid(1, 2rem);
+
+    @include mix.tablet {
+      @include mix.grid(3, 2rem);
+    }
+  }
+}

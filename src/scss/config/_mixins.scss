@@ -1,0 +1,92 @@
+@use "config/variables" as var;
+
+// Breakpoints
+@mixin phone {
+  @media (min-width: var.$phone) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: var.$tablet) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: var.$desktop) {
+    @content;
+  }
+}
+
+@mixin desktopXL {
+  @media (min-width: var.$desktopXL) {
+    @content;
+  }
+}
+
+@mixin hover {
+  @media (hover: hover) {
+    @content;
+  }
+}
+
+// Grid
+@mixin grid($column, $espaciado) {
+  display: grid;
+  grid-template-columns: repeat($column, 1fr);
+  gap: $espaciado;
+}
+
+// Botones
+@mixin button($color, $text) {
+  display: block;
+  margin-top: 2rem;
+  padding: 1rem 2rem;
+  background-color: $color;
+  font-size: 2rem;
+  font-weight: 700;
+  color: $text;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background-color 0.2s ease-in-out;
+  border: none;
+  border-radius: 1rem;
+
+  @include tablet {
+    width: auto;
+  }
+
+  @include hover {
+    &:hover {
+      background-color: darken($color, 10%);
+      cursor: pointer;
+    }
+  }
+}
+
+@mixin heading($jump: false) {
+  font-weight: 400;
+
+  span {
+    font-weight: 700;
+    @if ($jump) {
+      display: block;
+    }
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    height: 1rem;
+    width: 15rem;
+    margin-top: 1rem;
+    background-image: linear-gradient(
+      to right,
+      var.$primary-color 0%,
+      var.$primary-color 50%,
+      lighten(var.$primary-color, 20%) 50%,
+      lighten(var.$primary-color, 20%) 100%
+    );
+  }
+}

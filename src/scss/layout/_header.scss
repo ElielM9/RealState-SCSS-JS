@@ -1,0 +1,82 @@
+@use "config/variables" as var;
+@use "config/mixins" as mix;
+
+.header {
+  position: relative;
+  background-image: linear-gradient(
+      to right,
+      transparentize(var.$primary-color, 0.1) 0%,
+      transparentize(var.$primary-color, 0.1) 100%
+    ),
+    url(../assets/img/header_bg.jpg);
+  background-size:cover;
+  background-position: center;
+  padding: 3rem 0;
+
+  @include mix.tablet {
+    padding-bottom: 15rem;
+  }
+
+  &__top-bar {
+    display: flex;
+    flex-direction: row;
+    flex-flow: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+
+    @include mix.tablet {
+     padding: 0;
+    }
+  }
+
+  &__logo {
+    width: 22rem;
+  }
+
+  &__content {
+    @include mix.tablet {
+      margin-top: 10rem;
+      max-width: 60rem;
+    }
+  }
+
+  &__heading {
+    text-align: center;
+    color: var.$white;
+
+    @include mix.tablet {
+      text-align: left;
+    }
+  }
+
+  &__text {
+    color: var.$white;
+    display: none;
+
+    @include mix.tablet {
+      display: block;
+    }
+  }
+
+  &__picture {
+    display: none;
+
+    @include mix.tablet {
+      display: block;
+      position: absolute;
+      right: 0;
+      bottom: -5rem;
+      max-width: 35rem;
+    }
+
+    @include mix.desktopXL {
+      max-width: 60rem;
+    }
+  }
+
+  &__img {
+    border-top-left-radius: 2rem;
+    border-bottom-left-radius: 5rem;
+  }
+}

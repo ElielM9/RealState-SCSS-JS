@@ -1,0 +1,42 @@
+@use "config/variables" as var;
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: var.$primary-font;
+  background-color: darken(var.$lightGray, 3%);
+}
+
+a {
+  text-decoration: none;
+  line-height: 1.6;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+[class$="__contenedor"] {
+  width: 95%;
+  max-width: 120rem;
+  margin: 0 auto;
+}

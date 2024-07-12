@@ -1,0 +1,20 @@
+@use "config/variables" as var;
+@use "config/mixins" as mix;
+
+.testimonials-blog {
+  margin-top: 5rem;
+
+  @include mix.desktop {
+    @include mix.grid(3, 4rem);
+  }
+
+  &__blog {
+    @include mix.desktop {
+      grid-column: 2 / 4;
+    }
+  }
+
+  &__heading {
+    @include mix.heading(true);
+  }
+}

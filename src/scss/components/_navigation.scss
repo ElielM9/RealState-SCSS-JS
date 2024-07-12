@@ -1,0 +1,81 @@
+@use "config/variables" as var;
+@use "config/mixins" as mix;
+
+.hamburguer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  color: var.$white;
+  border: none;
+
+  @include mix.tablet {
+    display: none;
+  }
+
+  &__icon {
+    text-align: center;
+    color: var.$white;
+    height: 3rem;
+  }
+}
+
+.nav {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+
+  @include mix.tablet {
+    gap: 2rem;
+    margin-top: 0;
+    width: auto;
+  }
+
+  &--header {
+    height: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition: 0.2s all ease-in-out;
+
+    @include mix.tablet {
+      flex-flow: row;
+      overflow: visible;
+      pointer-events: auto;
+    }
+  }
+
+  &--active {
+    height: 30vh;
+    pointer-events: auto;
+  }
+
+  &__link {
+    width: 100%;
+    text-align: center;
+    color: var.$white;
+    font-size: 1.8rem;
+    border-bottom: 0.1rem solid transparent;
+    transition: all 0.2s ease;
+
+    @include mix.hover {
+      &:hover {
+        border-color: var.$white;
+      }
+    }
+
+    &--active {
+      @include mix.tablet {
+        border-color: var.$white;
+      }
+    }
+
+    &--footer {
+      text-align: left;
+    }
+  }
+}
